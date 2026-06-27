@@ -7,10 +7,10 @@ FASTQ_DIR="$WORK_DIR/fastq"
 mkdir -p $FASTQ_DIR
 
 # download SRR IDs for cocoa fermentation dataset
-wget -O ids.tsv \
+wget -O "$WORK_DIR/ids.tsv" \
     https://raw.githubusercontent.com/bokulich-lab/moshpit-docs/main/docs/data/cocoa/ids.tsv
 
-SRR_IDS=($(tail -n +2 ids.tsv | cut -f1))
+SRR_IDS=($(tail -n +2 "$WORK_DIR/ids.tsv" | cut -f1))
 
 
 # ============================================
@@ -18,12 +18,12 @@ SRR_IDS=($(tail -n +2 ids.tsv | cut -f1))
 # ============================================
 echo ""
 echo "=== Downloading metadata ==="
-wget -q -O metadata.tsv \
+wget -q -O "$WORK_DIR/metadata.tsv" \
     https://raw.githubusercontent.com/bokulich-lab/moshpit-docs/main/docs/data/cocoa/metadata.tsv
 echo "  ✓ Metadata downloaded"
 
 # change first column name of metadata to match manifest in place of id
-sed -i '1s/^id/sample-id/' metadata.tsv
+sed -i '1s/^id/sample-id/' "$WORK_DIR/metadata.tsv"
 
 # ============================================
 # STEP 5.1: Create subset metadata
