@@ -1,5 +1,6 @@
 # ignore anvio tar file
 anvio-9.tar.gz
 
-# ignore fastq directory
-
+# ignore data pack (tar.gz and extracted directory contain files >100MB)
+metagenomic-read-recruitment-data-pack.tar.gz
+metagenomic-read-recruitment-data-pack/
