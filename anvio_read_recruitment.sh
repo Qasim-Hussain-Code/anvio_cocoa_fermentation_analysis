@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eo pipefail
 
 # Download data pack
 curl -L https://cloud.uol.de/public.php/dav/files/B849axL35cBZzYD \
@@ -14,6 +14,9 @@ ls metagenomes/
 # (conda activate doesn't work in scripts without sourcing conda init first)
 source "$(conda info --base)/etc/profile.d/conda.sh"
 conda activate anvio-9
+
+echo "Conda environment: $CONDA_DEFAULT_ENV"
+echo "anvio path: $(which anvi-gen-contigs-database)"
 
 # Prepare for anvio
 anvi-gen-contigs-database -f genome.fa -o genome.db
