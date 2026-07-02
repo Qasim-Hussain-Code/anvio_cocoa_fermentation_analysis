@@ -13,7 +13,7 @@ ls metagenomes/
 # Activate anvio-9 conda environment
 # (conda activate doesn't work in scripts without sourcing conda init first)
 source "$(conda info --base)/etc/profile.d/conda.sh"
-conda activate anvio-9
+conda activate base
 
 echo "Conda environment: $CONDA_DEFAULT_ENV"
 echo "anvio path: $(which anvi-gen-contigs-database)"
